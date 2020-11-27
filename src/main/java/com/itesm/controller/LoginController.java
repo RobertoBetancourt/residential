@@ -30,6 +30,13 @@ public class LoginController {
 		int idUsuario = (int) credentials.get("id_usuario");
 		int idRol = (int) credentials.get("id_rol");
 
+		mav = manejarVistaLogin(idUsuario, idRol);
+		
+		return mav;
+	}
+	
+	public ModelAndView manejarVistaLogin(int idUsuario, int idRol) {
+		ModelAndView mav = new ModelAndView();
 		if(idUsuario > 0) {
 			List<Aviso> avisos = avisoDAO.obtenerAvisos();
 			mav.addObject("idUsuario", idUsuario);
